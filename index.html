@@ -266,7 +266,6 @@
                 </p>
                 <a href="https://book.mycruiseksa.com/swift/cruise?siid=1299876&searchcruise=1&lang=13&durations=&destinationtype=Ocean"
                     class="btn hero-btn" role="button" aria-describedby="hero-description" target="_blank">احجز الآن</a>
-
             </div>
         </div>
     </section>
@@ -342,20 +341,50 @@
                 <!-- Activities -->
                 <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
                     data-aos-delay="300">
-                    <img src="./imgs/Gallary/activities/activity1.jpg" alt="سيارات التصادم (Bumper Cars)"
-                        class="gallery-img">
+                    <picture>
+                        <!-- AVIF (modern browsers) -->
+                        <source srcset="./imgs/Gallary/activities/activity1.avif" type="image/avif">
+
+                        <!-- WebP (wider support fallback) -->
+                        <source srcset="./imgs/Gallary/activities/activity1.webp" type="image/webp">
+
+                        <!-- JPEG fallback -->
+                        <img src="./imgs/Gallary/activities/activity1.jpg" alt="سيارات التصادم (Bumper Cars)"
+                            class="gallery-img" width="1240" height="660" loading="lazy" decoding="async">
+                    </picture>
                 </div>
 
                 <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
                     data-aos-delay="300">
-                    <img src="./imgs/Gallary/activities/activity2.jpg"
-                        alt="تسلّق الصخور (Rock Climbing) وملعب كرة السلة (Basketball Court)" class="gallery-img">
+                    <picture>
+                        <!-- AVIF (modern browsers) -->
+                        <source srcset="./imgs/Gallary/activities/activity2.avif" type="image/avif">
+
+                        <!-- WebP (fallback) -->
+                        <source srcset="./imgs/Gallary/activities/activity2.webp" type="image/webp">
+
+                        <!-- JPEG fallback -->
+                        <img src="./imgs/Gallary/activities/activity2.jpg"
+                            alt="تسلّق الصخور (Rock Climbing) وملعب كرة السلة (Basketball Court)" class="gallery-img"
+                            width="1240" height="660" loading="lazy" decoding="async">
+                    </picture>
                 </div>
 
                 <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
                     data-aos-delay="300">
-                    <img src="./imgs/Gallary/activities/activity3.jpg" alt=" ميني جولف-Mini Golf" class="gallery-img">
+                    <picture>
+                        <!-- AVIF (modern format) -->
+                        <source srcset="./imgs/Gallary/activities/activity3.avif" type="image/avif">
+
+                        <!-- WebP (fallback) -->
+                        <source srcset="./imgs/Gallary/activities/activity3.webp" type="image/webp">
+
+                        <!-- JPEG fallback -->
+                        <img src="./imgs/Gallary/activities/activity3.jpg" alt="ميني جولف (Mini Golf)"
+                            class="gallery-img" width="1240" height="660" loading="lazy" decoding="async">
+                    </picture>
                 </div>
+
 
                 <!-- Restaurants - dining -->
                 <div class="col-md-4 col-sm-6 gallery-item" data-category="dining" data-aos="fade-up"
