@@ -140,26 +140,24 @@
 
             <!-- Royal-Carribian Logo -->
             <a class="navbar-brand" href="#home" aria-label="الصفحة الرئيسية - Royal Caribbean">
-                <!-- width 4 times height -->
                 <picture>
                     <!-- للجوالات: أقل من 768px -->
-                    <source srcset="./imgs/logo/RC.png" type="image/webp" media="(max-width: 767px)" width="160"
-                        height="40">
-                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(max-width: 767px)" width="160"
-                        height="40">
+                    <source srcset="./imgs/logo/RC.webp" type="image/webp" media="(max-width: 767px)">
+                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(max-width: 767px)">
+
                     <!-- للأجهزة الكبيرة: 768px فما فوق -->
-                    <source srcset="./imgs/logo/RC.png" type="image/webp" media="(min-width: 768px)" width="200"
-                        height="50">
-                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(min-width: 768px)" width="200"
-                        height="50">
+                    <source srcset="./imgs/logo/RC.webp" type="image/webp" media="(min-width: 768px)">
+                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(min-width: 768px)">
+
                     <!-- الصورة الافتراضية (احتياط) -->
-                    <img src="./imgs/logo/RC.png" alt="كروز Royal Caribbean" width="200" height="50" class="logo">
+                    <img src="./imgs/logo/RC.webp" alt="كروز Royal Caribbean" width="200" height="50" class="logo">
                 </picture>
             </a>
 
 
+
             <!-- mycruise Logo -->
-            <a class="navbar-brand" target="_blank" href="https://mycruiseksa.com/"
+            <a class="navbar-brand" id="mycruise" target="_blank" href="https://mycruiseksa.com/"
                 aria-label="موقع My Cruise KSA - يفتح في نافذة جديدة">
 
                 <!-- Mycruiseksa.svg Logo -->
@@ -212,28 +210,47 @@
 
     <!-- قسم الترحيب -->
     <section class="hero-section d-flex align-items-center" id="home">
-
         <picture>
-            <!-- Mobile (<= 320px) -->
-            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 320px)">
-            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 320px)">
+            <!-- AVIF sources -->
+            <source srcset="
+            ./imgs/hero/download-400.avif 400w,
+            ./imgs/hero/download-600.avif 600w,
+            ./imgs/hero/download-768.avif 768w,
+            ./imgs/hero/download.avif 880w
+            " sizes="(max-width: 480px) 100vw, 
+            (max-width: 768px) 80vw, 
+            (max-width: 1200px) 60vw, 
+            50vw" type="image/avif">
 
-            <!-- Small devices (<= 480px) -->
-            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 480px)">
-            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 480px)">
+            <!-- WebP fallback -->
+            <source srcset="
+            ./imgs/hero/download-400.webp 400w,
+            ./imgs/hero/download-600.webp 600w,
+            ./imgs/hero/download-768.webp 768w,
+            ./imgs/hero/download.webp 880w
+            " sizes="(max-width: 480px) 100vw, 
+            (max-width: 768px) 80vw, 
+            (max-width: 1200px) 60vw, 
+            50vw" type="image/webp">
 
-            <!-- Tablets (<= 768px) -->
-            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 768px)">
-            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 768px)">
+            <!-- JPEG fallback -->
+            <source srcset="
+            ./imgs/hero/download-400.jpg 400w,
+            ./imgs/hero/download-600.jpg 600w,
+            ./imgs/hero/download-768.jpg 768w,
+            ./imgs/hero/download.jpg 880w
+            " sizes="(max-width: 480px) 100vw, 
+            (max-width: 768px) 80vw, 
+            (max-width: 1200px) 60vw, 
+            50vw" type="image/jpeg">
 
-            <!-- Desktop (default) -->
-            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(min-width: 769px)">
-            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(min-width: 769px)">
 
-            <!-- Fallback image -->
-            <img src="./imgs/hero/download.avif" class="hero-background" alt="رحلة كروز Royal Carribian الفاخرة"
-                width="1280" height="854" loading="eager" role="presentation">
+            <!-- JPEG fallback -->
+            <img src="./imgs/hero/download.jpg" alt="رحلة كروز Royal Caribbean الفاخرة" class="hero-background"
+                width="880" height="1428" loading="lazy" role="presentation">
         </picture>
+
+
 
         <div class="hero-overlay"></div>
         <div class="container">
@@ -945,9 +962,9 @@
             </div>
         </div>
     </footer>
-    <script src="./js/bootstrap.bundle.min.js" ></script>
-    <script src="./js/swiper.min.js" ></script>
-    <script src="./js/aos.js" ></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/aos.js"></script>
 
     <script>
         // Initialize AOS Animation

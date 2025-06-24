@@ -260,6 +260,10 @@ input:focus {
 
 /* Mobile adjustments */
 @media (max-width: 992px) {
+    #mycruise {
+        display: none;
+    }
+
     .navbar-brand img {
         height: 60px;
         transition: all 0.4s ease;
@@ -272,6 +276,7 @@ input:focus {
     }
 
     .navbar-collapse {
+        width: auto;
         background: linear-gradient(135deg, var(--navy), var(--dark-blue));
         border-radius: 15px;
         padding: 20px;
@@ -307,6 +312,63 @@ input:focus {
         text-align: center;
     }
 }
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #mycruise {
+        display: none;
+    }
+
+    .navbar-brand img {
+        height: 65px;
+        /* Slightly larger for tablet */
+        transition: all 0.4s ease;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+
+    .navbar.scrolled .navbar-brand img {
+        height: 65px;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .navbar-collapse {
+        width: 444px;
+        background: linear-gradient(135deg, var(--navy), var(--dark-blue));
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .scrolled .navbar-collapse {
+        background: white;
+    }
+
+    .nav-link {
+        padding: 14px 24px;
+        margin: 10px 0;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: none;
+        padding-right: 28px;
+    }
+
+    .scrolled .nav-link:hover {
+        background-color: rgba(12, 33, 77, 0.05);
+    }
+
+    .navbar-cta {
+        margin: 15px 0;
+        text-align: center;
+    }
+}
+
 
 /* Animation for navbar items */
 @keyframes fadeInDown {
@@ -362,7 +424,8 @@ input:focus {
     overflow: hidden;
     display: flex;
     align-items: center;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
+    /* Parallax effect */
 }
 
 .hero-background {
@@ -375,13 +438,19 @@ input:focus {
     z-index: -1;
     transform: scale(1.1);
     transition: transform 8s ease;
-    filter: brightness(0.9) saturate(1.2); /* Enhanced image quality */
+    filter: brightness(0.9) saturate(1.2);
+    /* Enhanced image quality */
     animation: subtle-zoom 20s infinite alternate ease-in-out;
 }
 
 @keyframes subtle-zoom {
-    from { transform: scale(1.1); }
-    to { transform: scale(1.15); }
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
 }
 
 .hero-overlay {
@@ -390,24 +459,26 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(12, 33, 77, 0.8), 
-        rgba(0, 59, 111, 0.7),
-        rgba(0, 0, 0, 0.6)); /* Brand color gradient */
+    background: linear-gradient(135deg,
+            rgba(12, 33, 77, 0.8),
+            rgba(0, 59, 111, 0.7),
+            rgba(0, 0, 0, 0.6));
+    /* Brand color gradient */
     z-index: 0;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px; /* Increased max-width */
+    max-width: 800px;
+    /* Increased max-width */
     animation: fadeInUp 1s ease;
     padding: 2.5rem;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transform: perspective(1000px) rotateY(0deg);
     transition: transform 0.5s ease;
@@ -486,7 +557,8 @@ input:focus {
     content: '';
     position: absolute;
     top: 0;
-    right: 0; /* Changed from left for RTL */
+    right: 0;
+    /* Changed from left for RTL */
     width: 0;
     height: 100%;
     background: linear-gradient(45deg, #ffb100, var(--accent));
@@ -514,6 +586,7 @@ input:focus {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -522,9 +595,17 @@ input:focus {
 
 /* Added floating animation for hero content */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @media (max-width: 768px) {
@@ -532,15 +613,15 @@ input:focus {
         padding: 1.5rem;
         margin: 0 1rem;
     }
-    
+
     .hero-title {
         font-size: 3rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .hero-btn {
         padding: 15px 35px;
         font-size: 1.1rem;
@@ -551,16 +632,16 @@ input:focus {
     .hero-content {
         padding: 1rem;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
         margin-bottom: 25px;
     }
-    
+
     .hero-btn {
         padding: 12px 30px;
         font-size: 1rem;
@@ -570,10 +651,11 @@ input:focus {
 /* Add to your CSS */
 @media (prefers-reduced-motion: reduce) {
     [data-aos] {
-      animation: none !important;
-      transition: none !important;
+        animation: none !important;
+        transition: none !important;
     }
 }
+
 /*--- END HERO SECTION ---*/
 
 /*--- START FEATURES SECTION ---*/
@@ -609,6 +691,7 @@ input:focus {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.03);
 }
+
 /* Add to your feature.css */
 .feature-box:focus {
     outline: 2px solid #0071a9;
@@ -647,7 +730,7 @@ input:focus {
 .feature-icon {
     font-size: 3rem;
     margin-bottom: 25px;
-    background:  var(--primary);
+    background: var(--primary);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -740,17 +823,20 @@ input:focus {
         font-size: 1.2rem;
     }
 }
+
 /* Add to your CSS */
 @media (prefers-reduced-motion: reduce) {
     [data-aos] {
         animation: none !important;
         transition: none !important;
     }
-    
+
     .feature-box:focus {
-        transform: none; /* Remove transform on focus for reduced motion */
+        transform: none;
+        /* Remove transform on focus for reduced motion */
     }
 }
+
 /*--- END FEATURES SECTION ---*/
 
 
@@ -910,6 +996,7 @@ input:focus {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -922,24 +1009,41 @@ input:focus {
 }
 
 /* Staggered animation delay for gallery items */
-.gallery-item:nth-child(1) { animation-delay: 0.1s; }
-.gallery-item:nth-child(2) { animation-delay: 0.2s; }
-.gallery-item:nth-child(3) { animation-delay: 0.3s; }
-.gallery-item:nth-child(4) { animation-delay: 0.4s; }
-.gallery-item:nth-child(5) { animation-delay: 0.5s; }
-.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+.gallery-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gallery-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.gallery-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .gallery-section {
         padding: 60px 0;
     }
-    
+
     .filter-btn {
         padding: 8px 20px;
         font-size: 0.9rem;
     }
-    
+
     .gallery-img {
         height: 220px;
     }
@@ -950,11 +1054,12 @@ input:focus {
         animation: none !important;
         transition: none !important;
     }
-    
+
     .gallery-img {
         transition: none !important;
     }
 }
+
 /*--- END GALLERY SECTION ---*/
 
 /*--- START TRAVELS SECTION ---*/
@@ -997,9 +1102,7 @@ input:focus {
     z-index: -1;
 }
 
-.travels-container .section-title {
-    
-}
+.travels-container .section-title {}
 
 
 
@@ -1027,7 +1130,7 @@ input:focus {
     .travels-container {
         padding: 0 15px;
     }
-    
+
     .travels-container .section-title {
         margin-bottom: 30px;
         font-size: 2rem;
@@ -1035,8 +1138,8 @@ input:focus {
 }
 
 .section-title {
-   
-    
+
+
     padding-bottom: 15px;
 
 
@@ -1259,6 +1362,7 @@ input:focus {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1274,16 +1378,16 @@ input:focus {
     .travels-section {
         padding: 60px 0;
     }
-    
+
     .cruise-card {
         height: auto;
         min-height: 480px;
     }
-    
+
     .cruise-info {
         padding: 20px;
     }
-    
+
     .cruise-btn {
         padding: 12px 12px;
         position: relative;
@@ -1297,18 +1401,21 @@ input:focus {
 /* تعديلات إضافية للتأكد من ظهور العناصر بشكل صحيح */
 @media (min-width: 992px) {
     .cruise-card {
-        height: 550px; /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
+        height: 550px;
+        /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
     }
-    
+
     .cruise-info {
         height: calc(100% - 220px);
     }
-    
+
     .cruise-desc {
-        height: 80px; /* زيادة مساحة الوصف */
+        height: 80px;
+        /* زيادة مساحة الوصف */
     }
-    
-    .cruise-meta, .cruise-rating {
+
+    .cruise-meta,
+    .cruise-rating {
         margin-bottom: 20px;
         display: flex;
     }
@@ -1319,9 +1426,11 @@ input:focus {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 119, 204, 0.4);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(0, 119, 204, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(0, 119, 204, 0);
     }
@@ -1408,27 +1517,27 @@ input:focus {
         height: auto;
         min-height: 500px;
     }
-    
+
     .cruise-info {
         height: auto;
         min-height: 280px;
     }
-    
+
     .cruise-desc {
         height: auto;
         max-height: 100px;
         margin-bottom: 15px;
     }
-    
+
     .cruise-meta {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .cruise-meta span {
         width: 100%;
     }
-    
+
     .cruise-btn {
         position: relative;
         bottom: auto;
@@ -1442,18 +1551,21 @@ input:focus {
 /* تعديلات إضافية للتأكد من ظهور العناصر بشكل صحيح */
 @media (min-width: 992px) {
     .cruise-card {
-        height: 520px; /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
+        height: 520px;
+        /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
     }
-    
+
     .cruise-info {
         height: calc(100% - 220px);
     }
-    
+
     .cruise-desc {
-        height: 80px; /* زيادة مساحة الوصف */
+        height: 80px;
+        /* زيادة مساحة الوصف */
     }
-    
-    .cruise-meta, .cruise-rating {
+
+    .cruise-meta,
+    .cruise-rating {
         margin-bottom: 20px;
         display: flex;
     }
@@ -1464,9 +1576,11 @@ input:focus {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 119, 204, 0.4);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(0, 119, 204, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(0, 119, 204, 0);
     }
@@ -1555,12 +1669,13 @@ input:focus {
     .booking-section {
         padding: 60px 0;
     }
-    
+
     .booking-info {
         padding: 20px 0;
         margin-bottom: 30px;
     }
 }
+
 /*--- END BOOKING SECTION ---*/
 
 /*--- START FAQ SECTION ---*/
@@ -1758,17 +1873,18 @@ input:focus {
     .faq-section {
         padding: 60px 0;
     }
-    
+
     .accordion-button {
         padding: 20px 25px;
         font-size: 1rem;
     }
-    
+
     .accordion-body {
         padding: 20px 25px;
         font-size: 1rem;
     }
 }
+
 /*--- END FAQ SECTION ---*/
 
 /*--- START FOOTER SECTION ---*/
@@ -1986,15 +2102,15 @@ input:focus {
     .footer {
         padding: 60px 0 20px;
     }
-    
+
     .footer-title {
         margin-top: 30px;
     }
-    
+
     .social-links {
         justify-content: center;
     }
-    
+
     .newsletter-form {
         margin-bottom: 20px;
     }
@@ -2041,16 +2157,17 @@ input:focus {
     .footer-bottom {
         padding: 1.5rem 1rem;
     }
-    
+
     .footer-bottom img {
         max-width: 150px;
         margin-bottom: 1rem;
     }
-    
+
     .footer-bottom p {
         font-size: 0.8rem;
     }
 }
+
 /*--- END FOOTER SECTION */
 
 /*--- START RESPONSIVE STYLES ---*/
