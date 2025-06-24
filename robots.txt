@@ -1,0 +1,93 @@
+# Robots.txt for Royal Caribbean Cruise Website
+# Royal Caribbean - My Cruise KSA
+
+User-agent: *
+Allow: /
+
+# Allow all main content and pages
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /imgs/
+
+# Block sensitive or admin areas (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /_notes/
+Disallow: /logs/
+
+# Block search parameters and session IDs to prevent duplicate content
+Disallow: /*?*
+Disallow: /*sessionid*
+Disallow: /*PHPSESSID*
+Disallow: /*sid=*
+
+# Block common WordPress/CMS paths (if applicable)
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-content/themes/
+
+# Block development and testing files
+Disallow: /test/
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /*.txt$
+Disallow: /*.log$
+
+# Allow specific resource files for SEO
+Allow: /css/*.css
+Allow: /js/*.js
+Allow: /imgs/*.jpg
+Allow: /imgs/*.jpeg
+Allow: /imgs/*.png
+Allow: /imgs/*.webp
+Allow: /imgs/*.avif
+Allow: /imgs/*.svg
+
+# Block crawling of large files that might slow down crawling
+Disallow: /*.zip$
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+
+# Special rules for major search engines
+User-agent: Googlebot
+Allow: /
+# Allow Google to crawl CSS and JS for better page understanding
+Allow: /css/
+Allow: /js/
+
+User-agent: Bingbot
+Allow: /
+Allow: /css/
+Allow: /js/
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Crawl-delay for less important bots
+User-agent: *
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://yourdomain.com/sitemap_index.xml
+
+# Additional sitemaps for different content types
+# Sitemap: https://yourdomain.com/cruise-sitemap.xml
+# Sitemap: https://yourdomain.com/destination-sitemap.xml
+# Sitemap: https://yourdomain.com/ships-sitemap.xml

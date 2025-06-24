@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <!-- <?php wp_head(); // مهم جدًا لتفعيل إضافات مثل Rank Math ?> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="احجز رحلات كروز رويال كاريبيان الفاخرة إلى أجمل الوجهات العالمية. استمتع بسفن حائزة على جوائز، مطاعم عالمية، وأنشطة ترفيهية لا تُنسى. احجز الآن مع الجولة السعيدة - وكالة سفر سعودية معتمدة.">
+
+
+    <!-- Cruise Icon  تغيير الايقونات على حسب مقاس الشاشة والانظمة والمتصفح -->
+    <link rel="icon" href="./imgs/logo/mycruise/mycruiseksa150x150.png" sizes="32x32" />
+    <link rel="icon" href="./imgs/logo/mycruise/mycruiseksa300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./imgs/logo/mycruise/mycruiseksa300x300.png" />
+    <meta name="msapplication-TileImage" content="./imgs/logo/mycruise/mycruiseksa300x300.png" />
+
+
+    <!-- Style files -->
+    <title>رويال كاريبيان</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cruise-search-form-option-6.css">
+    <link rel="stylesheet" href="./css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/tailwind.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/aos.css">
+    <link rel="stylesheet" href="./css/lightbox.min.css">
+
+
+    <script language="javascript" type="text/javascript" src="./js/searchBox/OVExplore.min.js"></script>
+    <script>
+
+        function addSearchForm(configObject, divId) {
+            var searchForms = document.getElementsByTagName('ody-search-form');
+            var searchFormExists = false;
+            for (var i = 0; i < searchForms.length; i++) {
+                if (searchForms[i].attributes[0].value == configObject) {
+                    searchFormExists = true;
+                    break;
+                }
+            }
+            if (!searchFormExists) {
+                const div = document.createElement('div');
+                div.innerHTML = "<ody-search-form search-form-settings=" + configObject + "> </ody-search-form>";
+                document.getElementById(divId).appendChild(div);
+            }
+        }
+
+
+        window.OVExplore6 = {
+            /*'OVExplore' name should be match with your tag's search-form-settings property. i.e. <ody-search-form search-form-settings="OVExplore"></ody-search-form> */
+            preferences: {
+                languageId: "13", // Set your Language Id. Default Value : 1
+                siteItemId: "1299876", // Royal Caribbean site item id. Default Value: 1299876
+                sid1: "", // External ref 1
+                sid2: "", // External ref 2
+                referrer: "",
+                showStateNCountryWithPorts: true,
+                resultWindowType: "_blank", //specifies result window type of results Options: 1._blank 2._self 3._top
+                cruiseSearchFields: {
+                    // specifies the fields to be displayed on cruise search form, one can move fields from basic to advance and vice versa as per his/her preference */
+                    basic: [
+                        "destination",
+                        "sailingdate",
+                        "ship",
+                        //"duration",
+                        //"cruiseline",
+                        //"departureport",
+                        //"cruisetypecheckbox",
+                        //"packagetourscheckbox",
+                        //"allpackagescheckbox",
+                        //"allpackagescheckbox",
+                        //"includeinternalcruiselinescheckbox",
+                        //"newwindowcheckbox",
+                    ],
+                },
+            },
+            siteSettings: {
+                productType: "cruise",
+                domain: "book.mycruiseksa.com", // Replace your domain name here.
+                // theme: "default",
+                numberOfCols: 4,
+                themeColor: "#0071a9|#fff|#0071a9|#fff", // specfies primary | secondary| text color | button text color for search form Default value:#0978bd|#8eccf3|#fff|#fff
+            },
+            cruiseSearchSettings: {
+                destinationType: "ocean", // specifies destination type filter to be preselected, Default value: all, Options: all/ocean/river
+                cruiselineFilter: "8", // spcifies cruiselines to be displayed in cruiseline dropdown
+                //'destinationFilter': '1,2', // specifies destinations to be displayed in destination dropdown
+                //'shipFilter': '', // specifies ships to be displayed in ship dropdown
+                //'departureportFilter': 'BOM', // specifes port to be displayed in port dropdown
+                //'destinationPriority': '1,2',// specifies destinations to be displayed at top in list
+                //'cruiselinePriority': '1', // specifies cruiselines to be displayed at top in list
+                //'portPriority': 'BOM',//specifes port to be displayed at top in list
+                //'destinations': '74', // preselects destination
+                //'cruiseline': '1', //preselects cruiseline
+                //'ship': '6,14727,15841', // preselects ship
+                //'departurePorts': 'BOM', // preselects ports
+                //'duration': '4-6', //preselects duration
+                //'startDate': '12/12/2020', // preselects specifed date range
+                //'endDate': '12/16/2020',
+                //'portsOfCall': 'montreal',// preselect ports of call
+                //'arrivalPorts': 'AUH', //preselect arrival port
+                //'dynamicSupplierPromo': 'PP',//preselects promo code
+                //'prices': '1001-2000', // preselects price
+                //'hasVrUrl': true, //preselects virtual tour checkbox
+                //'includeInternalCruiselines': true, // preselects include internal cruiseline checkbox
+                //'transportId': '29', // preselects cruise only checkbox
+                //'transportId': '28', // preselects cruiseline tour checkbox
+                //'showallpackages': true, // preselects show all packages checkbox
+                //'showPackageTours': true, // preselects show package tours checkbox
+                //'iskidsfriendly': true, // preselects kids only checkbox
+            },
+            cruiseWidgetSettings: {
+                widgetType:
+                    "single" /* To be used to set select dropdown type versions. Default value: multiple, Options: 1.multiple 2.single*/,
+            },
+        };
+
+    </script>
+
+</head>
+
+
+
+
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="skip-link" href="#travels-section">تخطي إلى المحتوى الرئيسي</a>
+        <div class="nav-container">
+            <!-- Humbrgur button for Mobile Screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Royal-Carribian Logo -->
+            <a class="navbar-brand" href="#home" aria-label="الصفحة الرئيسية - Royal Caribbean">
+                <!-- width 4 times height -->
+                <picture>
+                    <!-- للجوالات: أقل من 768px -->
+                    <source srcset="./imgs/logo/RC.png" type="image/webp" media="(max-width: 767px)" width="160"
+                        height="40">
+                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(max-width: 767px)" width="160"
+                        height="40">
+                    <!-- للأجهزة الكبيرة: 768px فما فوق -->
+                    <source srcset="./imgs/logo/RC.png" type="image/webp" media="(min-width: 768px)" width="200"
+                        height="50">
+                    <source srcset="./imgs/logo/RC.png" type="image/png" media="(min-width: 768px)" width="200"
+                        height="50">
+                    <!-- الصورة الافتراضية (احتياط) -->
+                    <img src="./imgs/logo/RC.png" alt="كروز Royal Caribbean" width="200" height="50" class="logo">
+                </picture>
+            </a>
+
+
+            <!-- mycruise Logo -->
+            <a class="navbar-brand" target="_blank" href="https://mycruiseksa.com/"
+                aria-label="موقع My Cruise KSA - يفتح في نافذة جديدة">
+
+                <!-- Mycruiseksa.svg Logo -->
+                <picture>
+                    <!-- SVG للجوالات - 42.5x40 -->
+                    <source srcset="./imgs/logo/mycruise.svg" type="image/svg+xml" media="(max-width: 767px)"
+                        width="42.8" height="40">
+
+                    <!-- SVG للأجهزة الكبيرة - 53x50 -->
+                    <source srcset="./imgs/logo/mycruise.svg" type="image/svg+xml" media="(min-width: 768px)"
+                        width="53.5" height="50">
+
+                    <!-- Fallback في حالة عدم دعم SVG -->
+                    <img src="./imgs/logo/mycruise.svg" alt="شعار كروز MSC" width="53.5" height="50" class="logo">
+                </picture>
+
+            </a>
+
+
+            <!-- navbar for Mobile Screens -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-cta"
+                            href="https://book.mycruiseksa.com/swift/cruise?siid=1299876&searchcruise=1&lang=13&durations=&destinationtype=Ocean"
+                            target="_blank">
+                            احجز الآن</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#travels-section">الرحلات</a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#booking">ابحث عن رحلة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">الاسئلة الشائعة</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+    </nav>
+
+    <!-- قسم الترحيب -->
+    <section class="hero-section d-flex align-items-center" id="home">
+
+        <picture>
+            <!-- Mobile (<= 320px) -->
+            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 320px)">
+            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 320px)">
+
+            <!-- Small devices (<= 480px) -->
+            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 480px)">
+            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 480px)">
+
+            <!-- Tablets (<= 768px) -->
+            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(max-width: 768px)">
+            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(max-width: 768px)">
+
+            <!-- Desktop (default) -->
+            <source srcset="./imgs/hero/download.avif" type="image/webp" media="(min-width: 769px)">
+            <source srcset="./imgs/hero/download.avif" type="image/jpeg" media="(min-width: 769px)">
+
+            <!-- Fallback image -->
+            <img src="./imgs/hero/download.avif" class="hero-background" alt="رحلة كروز Royal Carribian الفاخرة"
+                width="1280" height="854" loading="eager" role="presentation">
+        </picture>
+
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">
+                    رحلة بحرية لا تنسى مع
+                    <br>
+                    Royal Caribbean 
+
+                </h1>
+                <p class="hero-subtitle" id="hero-description">
+                    حجز كروز فاخر مع رويال كاريبيان – سفن عالمية وباقات شاملة
+                </p>
+                <a href="https://book.mycruiseksa.com/swift/cruise?siid=1299876&searchcruise=1&lang=13&durations=&destinationtype=Ocean"
+                    class="btn hero-btn" role="button" aria-describedby="hero-description" target="_blank">احجز الآن</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features-section" id="why-us" aria-labelledby="features-heading">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">
+                لماذا كروز Royal Caribbean
+            </h2>
+            <p class="sr-only">قائمة بالمميزات الرئيسية لرويال كاريبيان</p>
+            <div class="row" role="list">
+                <div class="col-md-4 mb-4" role="listitem" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box" tabindex="0" role="button" aria-describedby="feature-1-desc">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-ship" aria-label="أيقونة السفينة"></i>
+                        </div>
+                        <h3 class="feature-title">سفن حائزة على جوائز</h3>
+                        <p class="feature-desc" id="feature-1-desc"></p>
+                        استمتع بتجربة أكثر السفن السياحية ابتكاراً مع مرافق
+                        وترفيه وإقامة ممتعه لجميع افراد العائلة
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" role="listitem" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box" tabindex="0" role="button" aria-describedby="feature-2-desc">
+                        <div class="feature-icon" aria-hidden="true">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3 class="feature-title">وجهات مذهلة</h3>
+                        <p class="feature-desc" id="feature-2-desc">
+                            ابحر الى وجهات متعددة مناسبه لزيارة اليوم الواحد واكتشف أجمل المدن الاوروبية و
+                            الاسيوية و الامريكية
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" role="listitem" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box" tabindex="0" role="button" aria-describedby="feature-3-desc">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="feature-title">مطاعم عالمية المستوى</h3>
+                        <p class="feature-desc" id="feature-3-desc">
+                            استمتع بتجربة تذوّق لاتنسى على متن جميع سفن كروز الرويال كاريبيان
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم معرض الصور -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">معرض صور كروز رويال كاريبيان
+            </h2>
+            <div class="gallery-filters" data-aos="fade-up" role="group" aria-label="مرشحات معرض الصور">
+
+                <button class="filter-btn active" data-filter="ships" aria-pressed="true"
+                    aria-controls="gallery-container" id="filter-ships">السفن</button>
+
+                <button class="filter-btn" data-filter="destinations" aria-pressed="false"
+                    aria-controls="gallery-container" id="filter-destinations">الوجهات</button>
+
+                <button class="filter-btn" data-filter="activities" aria-pressed="false"
+                    aria-controls="gallery-container" id="filter-activities">الأنشطة</button>
+
+                <button class="filter-btn" data-filter="dining" aria-pressed="false" aria-controls="gallery-container"
+                    id="filter-dining">المطاعم</button>
+            </div>
+
+            <div class="row" id="gallery-container">
+                <!-- Activities -->
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <img src="./imgs/Gallary/activities/activity1.jpg" alt="سيارات التصادم (Bumper Cars)"
+                        class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <img src="./imgs/Gallary/activities/activity2.jpg"
+                        alt="تسلّق الصخور (Rock Climbing) وملعب كرة السلة (Basketball Court)" class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="activities" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <img src="./imgs/Gallary/activities/activity3.jpg" alt=" ميني جولف-Mini Golf" class="gallery-img">
+                </div>
+
+                <!-- Restaurants - dining -->
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="dining" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <img src="./imgs/Gallary/restaurants/restaurant1.jpg" alt="تجربة الطعام من كروز الرويال كريبيان"
+                        class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="dining" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <img src="./imgs/Gallary/restaurants/restaurant2.jpg" alt=" مطاعم كروز الرويال كريبيان"
+                        class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="dining" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <img src="./imgs/Gallary/restaurants/restaurant3.jpg" alt="قاعات المطاعم فى كروز رويال كريبيان"
+                        class="gallery-img">
+                </div>
+
+                <!-- Ships -->
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="ships" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="./imgs/Gallary/ships/ship1.jpg" alt="كروز اوديسيس من الرويال كريبيان" class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="ships" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="./imgs/Gallary/ships/ship2.jpg" alt="كروز اوفيشين من الرويال كريبيان" class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="ships" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="./imgs/Gallary/ships/ship3.jpg" alt="سطح كروز الرويال كريبيان" class="gallery-img">
+                </div>
+
+
+                <!-- Destinations -->
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="destinations" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="./imgs/Gallary/destinations/destination1.webp" alt="النرويج" class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="destinations" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="./imgs/Gallary/destinations/destination2.webp" alt="البحر المتوسط - mediterranean"
+                        class="gallery-img">
+                </div>
+
+                <div class="col-md-4 col-sm-6 gallery-item" data-category="destinations" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="./imgs/Gallary/destinations/destination3.webp" alt="برشلونة - Barcelona"
+                        class="gallery-img">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم اجمل الرحلات -->
+    <section class="travels-section" id="travels-section">
+        <div class="travels-container">
+            <h2 class="section-title text-center" data-aos="fade-up">
+                اختياراتنا من رحلات الكروز حول العالم
+            </h2>
+            <div class="swiper cruises-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- رحلة اسيا التي تغادر من سنغافورة -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Ovation.jpg" alt="رحلة كروز آسيا والمحيط الهادئ"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">رحلة 8 ليالٍ إلى آسيا والمحيط الهادئ</h3>
+                                <p class="cruise-desc">
+                                    انطلق من سنغافورة واستمتع بزيارة لومبوك، بالي، وسيلوكان باوانغ على متن
+                                    كروز
+                                    <br>
+                                    Ovation of the Seas.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>سنغافورة</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1512103--8-night-bali-adventure-holiday-cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- رحلات من ميامي امريكا خلال سفينة Adventure of the seas -->
+                    <!-- الرحلة رقم 1 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Adventure1.jpg" alt="رحلة كروز شرق الكاريبي" class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">
+                                    رحلة بحرية مذهلة إلى شرق الكاريبي
+                                </h3>
+                                <p class="cruise-desc">
+                                    اكتشف سحر سانت كيتس، سانت مارتن، بورتو ريكو وهاييتي، في رحلة بحرية فاخرة تنطلق من
+                                    فلوريدا على متن
+                                    كروز
+                                    Adventure of the Seas.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>فورت لودرديل، فلوريدا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1556912--8-Night-Eastern-Caribbean-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- رحلة رقم 2 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Adventure1.jpg" alt="رحلة كروز الكاريبي الجنوبي"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">
+                                    أستكشف سحر الكاريبي الجنوبي
+                                </h3>
+                                <p class="cruise-desc">
+                                    انطلق من فلوريدا في رحلة بحرية ساحرة تزور جزر البهاماس، جمهورية الدومينيكان، أروبا
+                                    وكوراساو، مع إقامة فاخرة وتجارب لا تُنسى على متن
+                                    كروز
+                                    Adventure of the Seas.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>فورت لودرديل، فلوريدا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1556776--8-Night-Southern-Caribbean-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- رحلة رقم 3 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Adventure1.jpg" alt="كروز الكاريبي الجنوبي - Royal Caribbean"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">كروز 8 ليالٍ إلى الكاريبي الجنوبي
+                                </h3>
+                                <p class="cruise-desc">
+                                    استمتع برحلة بحرية مذهلة إلى جزر البهاماس، الدومينيكان، أروبا وكوراساو، في كروز فاخر
+                                    ينطلق من فورت لودرديل، فلوريدا على متن
+                                    كروز
+                                    Adventure of the Seas.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>فورت لودرديل، فلوريدا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1556697--8-Night-Southern-Caribbean-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- رحلة رقم 4 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Adventure1.jpg"
+                                alt="رحلة كروز الكاريبي الجنوبي على متن Adventure of the Seas" class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">
+                                    أروع كروز إلى الكاريبي الجنوبي
+                                </h3>
+                                <p class="cruise-desc">
+                                    رحلة كروز لا مثيل لها تأخذك من فلوريدا إلى أجمل جزر الكاريبي الجنوبي مثل ناسو،
+                                    كوراساو وأروبا. احجز مكانك الآن على متن كروز Adventure of the Seas واستمتع بالفخامة
+                                    والتجارب الفريدة.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>فورت لودرديل، فلوريدا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1556829--8-Night-Southern-Caribbean-Holiday?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- رحلات من روما ايطاليا على متن سفينة  ALLURE OF THE SEAS -->
+                    <!-- رحلة رقم 1 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Allure.jpg"
+                                alt="رحلة كروز غرب البحر المتوسط على متن Allure of the Seas" class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">
+                                    مغامرة في غرب البحر المتوسط
+                                </h3>
+                                <p class="cruise-desc">
+                                    استمتع برحلة كروز فاخرة تنطلق من روما وتزور أجمل مدن أوروبا مثل برشلونة، مارسيليا،
+                                    نابولي، فلورنسا وبالما دي مايوركا، على متن كروز Allure of the Seas من
+                                    Royal Caribbean.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>7 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>روما إيطاليا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1469825--7-Night-Western-Mediterranean-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- رحلة رقم 2 -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Allure.jpg" alt="رحلة كروز غرب البحر المتوسط - Allure of the Seas"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title"> رحلة بحرية لأروع الشواطئ والمدن في المتوسط</h3>
+                                <p class="cruise-desc">
+                                    اكتشف أجمل مدن البحر المتوسط في رحلة بحرية تبدأ من روما، وتشمل نابولي، برشلونة،
+                                    بالما دي مايوركا، وفلورنسا/بيزا، مع إقامة فاخرة على متن كروز Allure of the Seas من
+                                    Royal
+                                    Caribbean.
+                                </p>
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>7 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>روماإيطاليا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1469811--7-Night-Western-Mediterranean-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- رحلة روما على متن Odysses -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/Ody.jpg" alt="رحلة كروز البحر المتوسط من برشلونة إلى روما"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">رحلة بين المدن الساحرة من برشلونة إلى روما!</h3>
+                                <p class="cruise-desc">
+                                    استمتع بجولة أوروبية لا تُنسى على متن كروز <strong>Odyssey of the Seas</strong>،
+                                    تبدأ من برشلونة مرورًا بمايوركا، نيس، فلورنسا، صقلية ونابولي،
+                                    وصولًا إلى العاصمة الخالدة روما. تجربة فاخرة على البحر تجمع بين الجمال، الثقافة،
+                                    والمتعة.
+                                </p>
+
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>8 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>برشلونة – إسبانيا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1553325--8-Night-Italy--France---Spain-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- رحلة من مريطان على متن independence -->
+                    <div class="swiper-slide">
+                        <div class="cruise-card">
+                            <img src="./imgs/travels/independence.avif" alt="رحلة كروز شمال أوروبا - Royal Caribbean"
+                                class="cruise-img">
+                            <div class="cruise-info">
+                                <h3 class="cruise-title">اكتشف سحر الشمال بين إنجلترا والنرويج!</h3>
+                                <p class="cruise-desc">
+                                    انطلق من ساوثهامبتون في مغامرة بحرية لا تُنسى على متن كروز <strong>Independence of
+                                        the Seas</strong>،
+                                    إلى روتردام وهضاب النرويج الساحرة مثل سكجولدن، أولدن، وهاوغيسوند.
+                                    مشاهد طبيعية خلابة وتجربة فاخرة بانتظارك!
+                                </p>
+
+                                <div class="cruise-meta">
+                                    <span><i class="far fa-calendar-alt me-2"></i>7 ليالٍ</span>
+                                    <span><i class="fas fa-map-marker-alt me-2"></i>ساوثهامبتون، إنجلترا</span>
+                                </div>
+                                <a href="https://book.mycruiseksa.com/swift/cruise/package/1469886--7-Night-Norwegian-Fjords-Cruise?siid=1299876&lang=13"
+                                    target="_blank">
+                                    <button class="cruise-btn">احجز الآن</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- (Search Engine) قسم الحجز -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <div class="booking-header text-center" data-aos="fade-up">
+                <h2 class="section-title">احجز رحلتك الآن</h2>
+                <p class="booking-subtitle">اختر وجهتك المفضلة واستمتع بتجربة لا تُنسى مع رويال كاريبيان</p>
+            </div>
+            <div class="booking-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="booking-card-inner">
+                    <div class="booking-tabs">
+                        <div class="tab-content custom-tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade pt-2 show active" id="option-six" role="tabpanel"
+                                aria-labelledby="option-six-tab">
+                                <ody-search-form search-form-settings="OVExplore6"> </ody-search-form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2 class="faq-section-title text-center" data-aos="fade-up">الأسئلة الشائعة</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ما هي الوجهات المتوفرة في رحلات كروز رويال كاريبيان؟
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تشمل وجهات رويال كاريبيان: الكاريبي، أوروبا، البحر المتوسط، ألاسكا، آسيا، أستراليا، جزر
+                            الباهاما، والمزيد. يمكن حجز كروز إلى وجهتك المفضلة بسهولة من خلال
+                            <a href="https://book.mycruiseksa.com/" style="color: blue;">
+                                https://book.mycruiseksa.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ما أنواع الإقامة المتاحة عند حجز كروز مع رويال كاريبيان؟
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تقدّم رويال كاريبيان خيارات إقامة تناسب جميع الميزانيات، من الغرف الداخلية الاقتصادية إلى
+                            الأجنحة الفاخرة المطلة على البحر، بالإضافة إلى غرف بشرفات خاصة.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-question-circle me-2"></i>
+                            هل تشمل رحلات رويال كاريبيان كروز كل شيء؟
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            عند حجز كروز مع رويال كاريبيان، تشمل التذكرة: الإقامة، الوجبات، الأنشطة الترفيهية، العروض
+                            الحية، والدخول إلى العديد من المرافق. بعض الخدمات كالجولات السياحية الخاصة أو المطاعم
+                            الفاخرة تتطلب رسومًا إضافية.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fas fa-question-circle me-2"></i>
+                            هل رحلات الكروز مناسبة للأطفال والعائلات؟
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعم، رحلات كروز رويال كاريبيان مثالية للعائلات، مع برامج ترفيهية للأطفال، مناطق لعب، مسابح،
+                            وعروض تناسب جميع الأعمار.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ماذا يحدث إذا تم إلغاء الكروز أو أردت تعديل الحجز؟
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            رويال كاريبيان تقدم سياسة حجز مرنة تشمل إمكانية تعديل أو إلغاء الحجز مع استرجاع جزئي أو
+                            تحويل الحجز إلى تاريخ لاحق، حسب الشروط والأحكام.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="600">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ما هي أحدث سفن الكروز لدى رويال كاريبيان؟
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تضيف رويال كاريبيان باستمرار سفن كروز جديدة ومبتكرة إلى أسطولها، وآخرها سفن من فئة Icon
+                            Class مثل Icon of the Seas، والتي تُعد من أكبر وأحدث السفن في العالم. تتميز هذه السفن
+                            بتقنيات حديثة، تجارب ترفيهية غير مسبوقة، ومرافق مخصصة للعائلات والمغامرين على حد سواء.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="700">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            <i class="fas fa-question-circle me-2"></i>
+                            هل رحلات الكروز مع رويال كاريبيان آمنة؟
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعم، رحلات الكروز مع رويال كاريبيان تُعد من أكثر خيارات السفر أمانًا. تلتزم الشركة بمعايير
+                            دولية صارمة في مجال السلامة البحرية، إلى جانب بروتوكولات صحية متقدمة تشمل التعقيم المستمر،
+                            الفحص الطبي، وتدريب الطاقم على حالات الطوارئ. كما أن السفن مجهزة بأحدث أنظمة الأمان وتخضع
+                            لصيانة دورية. سواء كنت تحجز كروز لأول مرة أو من العملاء الدائمين، يمكنك الاستمتاع برحلة آمنة
+                            ومريحة في جميع الأوقات.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="800">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ما هي مميزات رحلات سفينة Odyssey of the Seas إلى جزر اليونان؟
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تقدّم سفينة Odyssey of the Seas من رويال كاريبيان رحلات كروز مذهلة إلى جزر اليونان مثل
+                            سانتوريني، ميكونوس، وأثينا، لمدة 7 إلى 9 ليالٍ.
+                            السفينة تحتوي على أكثر من 15 مطعمًا، ومسبحين خارجيين، ومنطقة SeaPlex للأنشطة، وعروض ترفيهية
+                            حية يوميًا.
+                            الرحلة تجمع بين الثقافة اليونانية والاستجمام الفاخر على متن واحدة من أحدث سفن الكروز.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="900">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            <i class="fas fa-question-circle me-2"></i>
+                            ما هي مميزات رحلات سفينة allure of the seas إلى جزر اليونان؟
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            تقدّم سفينة allure of the seas من رويال كاريبيان رحلات كروز مذهلة إلى جزر اليونان مثل
+                            سانتوريني، ميكونوس، وأثينا، لمدة 7 إلى 9 ليالٍ.
+                            السفينة تحتوي على أكثر من 15 مطعمًا، ومسبحين خارجيين، ومنطقة SeaPlex للأنشطة، وعروض ترفيهية
+                            حية يوميًا.
+                            الرحلة تجمع بين الثقافة اليونانية والاستجمام الفاخر على متن واحدة من أحدث سفن الكروز.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- قسم التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <img src="./imgs/logo/mycruise.svg" alt="شعار الجولة السعيدة" class="footer-logo">
+                    <p class="footer-desc">لماذا الجولة السعيدة؟ نفخر بكوننا مجموعة خبراء سفر سعوديون نقدم لكم خلاصة
+                        تجاربنا في رحلاتنا الخارجية وبالأخص رحلات الكروز، نقدم لكم استشاراتنا لتصميم رحلاتكم ونقدم الدعم
+                        الشامل طوال فترة رحلتكم، لضمان تجربة سفر مميزة تتجاوز توقعاتكم
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/aljawlaalsaeeda" target="_blank" class="social-icon"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.snapchat.com/add/aljawlaalsaeeda" target="_blank" class="social-icon"
+                            aria-label="Snapchat">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                        <a href="https://t.me/mycruiseksa" target="_blank" class="social-icon" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://web.whatsapp.com/send?phone=966593440901" target="_blank" class="social-icon"
+                            aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://x.com/aljawlaalsaeeda" target="_blank" class="social-icon"
+                            aria-label="X (formerly Twitter)">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 col-md-6 mt-4 mt-md-0">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="www.mycruiseksa.com">الرئيسية</a></li>
+                        <li><a href="www.book.mycruiseksa.com">ابحث عن رحلة</a></li>
+                        <li><a href="book@mycruiseksa.com">تواصل معنا</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <h3 class="footer-title">اتصل بنا</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <p>
+                            شارع ياسر بن عامر الكناني، جدة، المملكة العربية السعودية.
+                        </p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <p>
+                            <a href="https://web.whatsapp.com/send?phone=966593440901">
+                                +966 59 344 0901
+                            </a>
+                        </p>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p>
+                            <a href="https://book.mycruiseksa.com">Book@mycruiseksa.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <h3 class="footer-title">النشرة الإخبارية</h3>
+                    <p class="footer-desc">اشترك في نشرتنا الإخبارية لتلقي العروض الحصرية وأحدث الأخبار.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="عنوان بريدك الإلكتروني">
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe to newsletter"
+                            aria-labelledby="subscribeLabel">
+                            <span id="subscribeLabel" class="visually-hidden">اشترك فى النشرةالإخبارية</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <picture>
+                    <!-- SVG للجوالات - نفترض المقاس 150x45 -->
+                    <source srcset="./imgs/logo/mycruise.svg" type="image/svg+xml" media="(max-width: 767px)"
+                        width="150" height="140.14">
+
+                    <!-- SVG للديسكتوب - نفترض المقاس 200x60 -->
+                    <source srcset="./imgs/logo/mycruise.svg" type="image/svg+xml" media="(min-width: 768px)"
+                        width="100" height="93.42">
+
+                    <!-- Fallback في حالة عدم دعم SVG -->
+                    <img src="./imgs/logo/mycruise.svg" alt="شعار كروز MSC" loading="lazy" width="100" height="93.42">
+                </picture>
+
+                <p>
+                    حقوق الطبع والنشر © 2025 وكالة الجولة السعيدة للسفر والسياحة. جميع الحقوق محفوظة.
+                    مرخصة من وزارة السياحة السعودية رقم 73103997 | السجل التجاري رقم 4030498832 | <a
+                        href="https://book.mycruiseksa.com">Book@mycruiseksa.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/bootstrap.bundle.min.js" ></script>
+    <script src="./js/swiper.min.js" ></script>
+    <script src="./js/aos.js" ></script>
+
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize Swiper for Cruises Section
+        const cruisesSwiper = new Swiper('.cruises-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+
+        // Initialize Swiper for Testimonials Section
+        const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add this to ensure proper state management
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Add keyboard event handling
+        document.querySelectorAll('.feature-box[tabindex]').forEach(box => {
+            box.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    // Handle feature selection/interaction
+                    box.click();
+                }
+            });
+        });
+
+
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Remove active state from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.setAttribute('aria-pressed', 'false');
+                    b.classList.remove('active');
+                });
+
+                // Set current button as active
+                this.setAttribute('aria-pressed', 'true');
+                this.classList.add('active');
+
+                // Your filter logic here
+                const filter = this.getAttribute('data-filter');
+                filterGallery(filter);
+            });
+        });
+
+        // Function to filter gallery items
+        function filterGallery(filter) {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Initial filtering - show only "ships" items when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            filterGallery('ships');
+        });
+    </script>
+
+    <!-- For Search Box Engine -->
+
+    <script src="./js/searchBox/v321jquery.min.js"></script>
+
+</body>
+
+</html>
