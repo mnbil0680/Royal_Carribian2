@@ -919,12 +919,7 @@ input:focus {
 /*--- END GALLERY SECTION ---*/
 
 /*--- START TRAVELS SECTION ---*/
-.travels-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #0C214D 0%, #0C214D 100%);
-    position: relative;
-    overflow: hidden;
-}
+
 
 .travels-container {
     max-width: 1200px;
@@ -990,8 +985,8 @@ input:focus {
 
 
 .travels-section {
-    padding: 80px 0;
-    background-color: #f9fbfd;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0C214D 0%, #0C214D 100%);
     position: relative;
     overflow: hidden;
 }
