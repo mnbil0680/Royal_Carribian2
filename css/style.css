@@ -89,14 +89,6 @@ input:focus {
     z-index: 1000;
 }
 
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    padding: 8px 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
 .navbar-brand {
     position: relative;
     display: flex;
@@ -111,11 +103,6 @@ input:focus {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.navbar.scrolled .navbar-brand img {
-    height: 50px;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-}
-
 .nav-link {
     font-family: 'Cairo', 'Tajawal', 'Almarai', 'Segoe UI', 'Tahoma', 'sans-serif';
     color: white !important;
@@ -128,9 +115,6 @@ input:focus {
     letter-spacing: 0.5px;
 }
 
-.scrolled .nav-link {
-    color: var(--navy) !important;
-}
 
 .nav-link:hover {
     color: var(--accent) !important;
@@ -203,9 +187,7 @@ input:focus {
     z-index: 1;
 }
 
-.scrolled .navbar-toggler-icon {
-    filter: none;
-}
+
 
 .navbar-collapse {
     transition: all 0.4s ease;
@@ -239,15 +221,6 @@ input:focus {
     display: none;
 }
 
-.scrolled .navbar-cta {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
-}
-
-.scrolled .navbar-cta:hover {
-    box-shadow: 0 8px 25px rgba(0, 119, 204, 0.4);
-}
 
 /* Add to your nav.css */
 .navbar-nav .nav-link:focus,
@@ -270,10 +243,7 @@ input:focus {
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
-    .navbar.scrolled .navbar-brand img {
-        height: 60px;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-    }
+
 
     .navbar-collapse {
         width: auto;
@@ -286,9 +256,7 @@ input:focus {
         overflow-y: auto;
     }
 
-    .scrolled .navbar-collapse {
-        background: white;
-    }
+
 
     .nav-link {
         padding: 12px 20px;
@@ -303,9 +271,7 @@ input:focus {
         padding-right: 25px;
     }
 
-    .scrolled .nav-link:hover {
-        background-color: rgba(12, 33, 77, 0.05);
-    }
+
 
     .navbar-cta {
         margin: 10px 0;
@@ -326,10 +292,7 @@ input:focus {
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
-    .navbar.scrolled .navbar-brand img {
-        height: 65px;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-    }
+
 
     .navbar-collapse {
         width: 444px;
@@ -342,9 +305,7 @@ input:focus {
         overflow-y: auto;
     }
 
-    .scrolled .navbar-collapse {
-        background: white;
-    }
+
 
     .nav-link {
         padding: 14px 24px;
@@ -359,9 +320,7 @@ input:focus {
         padding-right: 28px;
     }
 
-    .scrolled .nav-link:hover {
-        background-color: rgba(12, 33, 77, 0.05);
-    }
+
 
     .navbar-cta {
         margin: 15px 0;
@@ -369,48 +328,6 @@ input:focus {
     }
 }
 
-
-/* Animation for navbar items */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.navbar-nav .nav-item {
-    animation: fadeInDown 0.5s ease forwards;
-    opacity: 0;
-}
-
-.navbar-nav .nav-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.navbar-nav .nav-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.navbar-nav .nav-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.navbar-nav .nav-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.navbar-nav .nav-item:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-.navbar-nav .nav-item:nth-child(6) {
-    animation-delay: 0.6s;
-}
 
 /*--- END NAVBAR STYLES ---*/
 
@@ -623,7 +540,7 @@ input:focus {
 
 /*--- START FEATURES SECTION ---*/
 .features-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #0C214D 0%, #0C214D 100%);
     padding: 100px 0;
     position: relative;
     overflow: hidden;
@@ -631,16 +548,33 @@ input:focus {
 
 
 
-.section-title {
+.features-section .section-title {
+
     position: relative;
-    margin-bottom: 70px;
+    color: white;
     font-weight: 800;
-    color: var(--navy);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
     text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-
+.features-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 3px;
+}
 
 .feature-box {
     text-align: center;
@@ -795,19 +729,38 @@ input:focus {
 /*--- START GALLERY SECTION ---*/
 .gallery-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: #0C214D;
     position: relative;
     overflow: hidden;
 }
 
-.section-title {
+.gallery-section .section-title {
     position: relative;
-    margin-bottom: 50px;
+    color: white;
     font-weight: 800;
-    color: var(--navy);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
     text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
+
+.gallery-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 3px;
+}
+
 
 .gallery-filters {
     margin-bottom: 40px;
@@ -866,6 +819,8 @@ input:focus {
 }
 
 .gallery-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
     margin-bottom: 30px;
     overflow: hidden;
     border-radius: 15px;
@@ -881,7 +836,7 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(12, 33, 77, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    background: linear-gradient(to top, rgba(13, 67, 182, 0.586) 0%, rgba(0, 0, 0, 0) 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
@@ -943,12 +898,6 @@ input:focus {
 
 
 
-.gallery-item {
-    animation: fadeInUp 0.6s ease forwards;
-    opacity: 0;
-}
-
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .gallery-section {
@@ -972,7 +921,7 @@ input:focus {
 /*--- START TRAVELS SECTION ---*/
 .travels-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--light-blue) 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #0C214D 0%, #0C214D 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1009,7 +958,34 @@ input:focus {
     z-index: -1;
 }
 
-.travels-container .section-title {}
+
+
+.travels-container .section-title {
+    position: relative;
+    color: white;
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.travels-container .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 3px;
+}
 
 
 
@@ -1276,9 +1252,6 @@ input:focus {
     }
 }
 
-.cruise-card {
-    animation: fadeInUp 0.6s ease forwards;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -1349,6 +1322,7 @@ input:focus {
 
 /* تحسينات إضافية للبطاقات */
 .cruise-card {
+    animation: fadeInUp 0.6s ease forwards;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -1504,10 +1478,53 @@ input:focus {
 /*--- START BOOKING SECTION ---*/
 .booking-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #0C214D 0%, #0C214D 100%);
     position: relative;
     overflow: hidden;
 }
+
+.booking-section .section-title {
+    position: relative;
+    color: white;
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.booking-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 3px;
+}
+
+
+
+.booking-section .booking-subtitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--light-blue);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    padding-bottom: 15px;
+}
+
+
+
 
 .booking-info {
     padding: 30px;
@@ -1521,7 +1538,7 @@ input:focus {
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 25px;
-    color: #555;
+    color: #ffffff;
 }
 
 .booking-features {
@@ -1605,13 +1622,33 @@ input:focus {
     direction: rtl;
 }
 
+
+
 .faq-section-title {
     position: relative;
-    margin-bottom: 50px;
-    font-weight: 800;
     color: white;
-    font-size: 2.5rem;
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
     text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffffff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.faq-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 3px;
 }
 
 .accordion-item {
