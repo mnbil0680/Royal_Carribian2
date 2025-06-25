@@ -1029,13 +1029,11 @@ input:focus {
     text-align: center;
 }
 
-
-
 .cruise-card {
-    border-radius: 15px;
-    overflow: hidden;
+    border-radius: 18px;
+    height: 600px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    height: 550px;
+    overflow: hidden;
     position: relative;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     background-color: white;
@@ -1063,6 +1061,23 @@ input:focus {
 .cruise-card:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+.cruise-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.02) 100%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.cruise-card:hover::before {
+    opacity: 1;
 }
 
 .cruise-img {
@@ -1234,33 +1249,31 @@ input:focus {
     font-size: 18px !important;
 }
 
-/* Animation for cruise cards */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .travels-section {
-        padding: 60px 0;
-    }
-
     .cruise-card {
         height: auto;
-        min-height: 480px;
+        min-height: 600px;
     }
 
     .cruise-info {
         padding: 20px;
+        height: auto;
+        min-height: 280px;
+    }
+
+    .cruise-desc {
+        height: auto;
+        max-height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .cruise-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cruise-meta span {
+        width: 100%;
     }
 
     .cruise-btn {
@@ -1270,13 +1283,17 @@ input:focus {
         left: auto;
         right: auto;
         margin-top: 20px;
+        width: 100%;
+    }
+
+    .travels-section {
+        padding: 60px 0;
     }
 }
 
-/* تعديلات إضافية للتأكد من ظهور العناصر بشكل صحيح */
 @media (min-width: 992px) {
     .cruise-card {
-        height: 550px;
+        height: 600px;
         /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
     }
 
@@ -1296,54 +1313,6 @@ input:focus {
     }
 }
 
-/* تأثيرات إضافية للبطاقات */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 119, 204, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(0, 119, 204, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 119, 204, 0);
-    }
-}
-
-.cruise-btn:active {
-    animation: pulse 0.8s;
-}
-
-/* تحسينات إضافية للبطاقات */
-.cruise-card {
-    animation: fadeInUp 0.6s ease forwards;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    height: 550px;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.cruise-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.02) 100%);
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.cruise-card:hover::before {
-    opacity: 1;
-}
 
 /* تحسين صورة البطاقة */
 .cruise-img-container {
@@ -1387,84 +1356,7 @@ input:focus {
     opacity: 1;
 }
 
-/* تحسينات للجوال */
-@media (max-width: 768px) {
-    .cruise-card {
-        height: auto;
-        min-height: 500px;
-    }
 
-    .cruise-info {
-        height: auto;
-        min-height: 280px;
-    }
-
-    .cruise-desc {
-        height: auto;
-        max-height: 100px;
-        margin-bottom: 15px;
-    }
-
-    .cruise-meta {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .cruise-meta span {
-        width: 100%;
-    }
-
-    .cruise-btn {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        margin-top: 20px;
-        width: 100%;
-    }
-}
-
-/* تعديلات إضافية للتأكد من ظهور العناصر بشكل صحيح */
-@media (min-width: 992px) {
-    .cruise-card {
-        height: 520px;
-        /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
-    }
-
-    .cruise-info {
-        height: calc(100% - 220px);
-    }
-
-    .cruise-desc {
-        height: 80px;
-        /* زيادة مساحة الوصف */
-    }
-
-    .cruise-meta,
-    .cruise-rating {
-        margin-bottom: 20px;
-        display: flex;
-    }
-}
-
-/* تأثيرات إضافية للبطاقات */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 119, 204, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(0, 119, 204, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 119, 204, 0);
-    }
-}
-
-.cruise-btn:active {
-    animation: pulse 0.8s;
-}
 
 /*--- END TRAVELS SECTION ---*/
 
