@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="./css/tailwind.min.css">
     <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/swiper.min.css">
-    <!-- <link rel="stylesheet" href="./css/aos.css"> -->
     <link rel="stylesheet" href="./css/lightbox.min.css">
 
 
@@ -1059,12 +1058,7 @@
     <script src="./js/aos.js"></script>
 
     <script>
-        // Initialize AOS Animation
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
+
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', function () {
@@ -1185,8 +1179,10 @@
         function filterGallery(filter) {
             document.querySelectorAll('.gallery-item').forEach(item => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.classList.add('show');
                     item.style.display = 'block';
                 } else {
+                    item.classList.remove('show');
                     item.style.display = 'none';
                 }
             });
