@@ -1042,7 +1042,7 @@ input:focus {
 
 .cruise-card {
     border-radius: 18px;
-    height: 600px;
+    height: 750px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
@@ -1136,14 +1136,48 @@ input:focus {
 .cruise-meta {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 25px;
     font-size: 0.95rem;
     color: #555;
     background-color: rgba(230, 247, 255, 0.7);
-    padding: 12px 15px;
+    padding-bottom: 12px;
+    padding-top: 12px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 119, 204, 0.08);
     transition: all 0.3s ease;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 119, 204, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.meta-item:hover {
+    background-color: rgba(0, 119, 204, 0.05);
+    transform: translateX(-2px);
+    border-color: rgba(0, 119, 204, 0.2);
+}
+
+.meta-item i {
+    color: var(--primary);
+    margin-left: 8px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.meta-item:hover i {
+    color: var(--secondary);
 }
 
 .cruise-card:hover .cruise-meta {
@@ -1155,7 +1189,7 @@ input:focus {
     display: flex;
     align-items: center;
     position: relative;
-    padding-right: 20px;
+    padding-bottom: 8px;
 }
 
 .cruise-meta i {
@@ -1263,7 +1297,7 @@ input:focus {
 @media (max-width: 768px) {
     .cruise-card {
         height: auto;
-        min-height: 600px;
+        min-height: 750px;
     }
 
     .cruise-info {
@@ -1304,7 +1338,7 @@ input:focus {
 
 @media (min-width: 992px) {
     .cruise-card {
-        height: 600px;
+        height: 750px;
         /* زيادة ارتفاع البطاقة قليلاً لضمان ظهور جميع العناصر */
     }
 
@@ -1365,6 +1399,50 @@ input:focus {
 .cruise-card:hover .cruise-badge {
     transform: translateY(0);
     opacity: 1;
+}
+
+.cruise-highlights {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.cruise-highlights .highlight-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #000;
+    flex: 0 0 auto;
+}
+
+
+.cruise-highlights .highlight-item i {
+    margin-left: 6px;
+    font-size: 0.9rem;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+
+
+@media (max-width: 768px) {
+    .cruise-highlights {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .cruise-highlights .highlight-item {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .cruise-highlights .highlight-item i {
+        font-size: 0.8rem;
+        margin-left: 4px;
+    }
 }
 
 
