@@ -558,7 +558,7 @@ input:focus {
     text-align: center;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ffffff, var(--accent));
+    background: var(--accent);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -743,7 +743,7 @@ input:focus {
     text-align: center;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ffffff, var(--accent));
+    background: var(--accent);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -975,7 +975,7 @@ input:focus {
     text-align: center;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ffffff, var(--accent));
+    background: var(--accent);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1390,7 +1390,7 @@ input:focus {
     text-align: center;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ffffff, var(--accent));
+    background: var(--accent);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1531,7 +1531,7 @@ input:focus {
     text-align: center;
     letter-spacing: 0.5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ffffff, var(--accent));
+    background: var(--accent);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1760,12 +1760,12 @@ input:focus {
     color: #fff;
 }
 
-.footer-title:after {
+.footer-title::after {
     content: '';
     position: absolute;
     width: 50px;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+    background: white;
     bottom: 0;
     right: 0;
     border-radius: 2px;
@@ -1791,7 +1791,7 @@ input:focus {
     padding-right: 15px;
 }
 
-.footer-links a:before {
+.footer-links a::before {
     content: '→';
     position: absolute;
     right: 0;
@@ -1806,7 +1806,7 @@ input:focus {
     padding-right: 20px;
 }
 
-.footer-links a:hover:before {
+.footer-links a:hover::before {
     opacity: 1;
 }
 
@@ -1861,7 +1861,7 @@ input:focus {
     overflow: hidden;
 }
 
-.social-icon:before {
+.social-icon::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1883,7 +1883,7 @@ input:focus {
     transform: translateY(-5px);
 }
 
-.social-icon:hover:before {
+.social-icon:hover::before {
     transform: translateY(0);
 }
 
@@ -2074,31 +2074,31 @@ input:focus {
     }
 
     .footer-title:after {
+        width: 50px;
         left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .footer-contact-item {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-input {
-        border-radius: 5px;
-        margin-bottom: 10px;
-    }
-
-    .newsletter-btn {
-        border-radius: 5px;
-        padding: 10px;
+        transform: translateX(-350%);
     }
 }
+
+
+
+.social-links {
+    justify-content: center;
+}
+
+.newsletter-form {
+    flex-direction: column;
+}
+
+.newsletter-input {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.newsletter-btn {
+    border-radius: 5px;
+    padding: 10px;
+}
+
 
 /*--- END RESPONSIVE STYLES ---*/
