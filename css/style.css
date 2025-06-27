@@ -236,8 +236,13 @@ input:focus {
         display: none;
     }
 
+    .navbar-brand {
+
+        margin-left: 0 !important;
+        padding-left: 15px;
+    }
+
     .navbar-brand img {
-        width: 50%;
         transition: all 0.4s ease;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
