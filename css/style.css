@@ -1130,7 +1130,7 @@ input:focus {
 
 .cruise-desc {
     color: #666;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     margin-bottom: 20px;
     height: 80px;
     overflow: hidden;
@@ -1416,7 +1416,7 @@ input:focus {
     display: flex;
     align-items: center;
     padding: 8px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: #000;
     flex: 0 0 auto;
